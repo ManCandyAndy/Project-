@@ -1,0 +1,28 @@
+---
+title: "Yellowfin Data Analysis"
+output: html_document
+---
+
+```{r, message=FALSE}
+library(dplyr)
+library(ggplot2)
+```
+
+```{r}
+thedata <- read_excel("../data/Yellowfin.xlsx")
+View(Yellowfin)
+```
+
+#Calculating average of immatrue and mature caught tuna per year
+# remember to push the data to commit
+```{r,}
+avg_immature <- summarize(thedata, avg_height = mean(Immature(Catch numbers)))
+
+```
+
+
+
+
+
+
+
