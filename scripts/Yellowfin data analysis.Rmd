@@ -9,14 +9,17 @@ library(ggplot2)
 ```
 
 ```{r}
-thedata <- read_excel("../data/Yellowfin.xlsx")
+thedata <- read.csv("../data/Yellowfin.xlsx")
 View(Yellowfin)
 ```
 
-#Calculating average of immatrue and mature caught tuna per year
-# remember to push the data to commit
+# Plotting immature and mature yellowfin caught per year
 ```{r,}
-avg_immature <- summarize(thedata, avg_height = mean(Immature(Catch numbers)))
+ggplot()+
+  geom_histogram(data = thedata, aes(x = Immature),fill = "blue", bins = 30 , alpha = 0.3) + 
+  geom_histogram(data = thedata, aes(x = Mature),fill = "purple", bins = 30 , alpha = 0.3) +
+  labs(x = "Number Caught", y = "Count")+
+  facet_wrap(~Year)
 
 ```
 
